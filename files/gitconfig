@@ -1,0 +1,13 @@
+[alias]
+	ci = commit
+	taglist = log --reverse --format=%h%d --tags --no-walk
+	st = status
+	up = pull --rebase
+	dc = diff --cached
+[color]
+	ui = true
+[user]
+	name =
+	email = 
+[push]
+	default = matching

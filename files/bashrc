@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+
+# use a .localrc file for our SUPER SECRECT STUFF
+if [ -a ~/.localrc ]; then source ~/.localrc; fi
+
+if [[ $PROMPT ]]; then
+    export PS1=$PROMPT
+fi
+
+alias hg='history | grep '
+alias psg='ps fauxwww | grep -v grep | grep'
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# sets vi for the command line
+set -o vi
+
